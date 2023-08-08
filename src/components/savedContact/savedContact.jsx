@@ -1,18 +1,19 @@
 import { IoMdContact } from 'react-icons/io';
 import css from 'components/savedContact/savedContact.module.css'
 
-const SavedContact = ({ contact }) => {
+const SavedContact = ({ id, name, number }) => {
+
     return (
-        <li className={css.item} key={contact.name}
+        <li className={css.item} key={name}
         >
             <p className={css.itemText}>
                 <IoMdContact className={css.icon} />
-                {contact.name}: {contact.number}
+                {name}: {number}
             </p>
             <button
                 className={css.btn}
                 type='button'
-                data-id={contact.id}
+                data-id={id}
             >
                 Delete
             </button>

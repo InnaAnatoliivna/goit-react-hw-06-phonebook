@@ -1,13 +1,19 @@
 import { useState } from 'react';
 import { getRandomId } from 'components/random-id'
 import css from 'components/add-contact/add-contact.module.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectorContacts } from 'redux/selectors';
+import { addContact } from 'redux/reducers/contactsSlice';
 
-const AddContactForm = ({ addContact }) => {
+const AddContactForm = () => {
     const nameInputId = getRandomId();
     const numerInputId = getRandomId();
 
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
+
+    const contacts = useSelector(selectorContacts);
+    const dispatch = useDispatch();
 
     const onChangeInput = evt => {
         const { name, value } = evt.target;
@@ -17,7 +23,12 @@ const AddContactForm = ({ addContact }) => {
 
     const onAddToContacts = e => {
         e.preventDefault();
-        addContact(name, number);
+        const idContact = getRandomId();
+        const dataFields = { name: name, number: number, id: idContact };
+        const isContact = contacts.find(contact => contact.name === dataFields.name);
+        !isContact ?
+            dispatch(addContact(dataFields))
+            : alert(`${name} is already in contacts`);
         setName('');
         setNumber('');
     }

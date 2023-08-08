@@ -1,24 +1,39 @@
 import SavedContact from 'components/savedContact/savedContact'
+import { useDispatch, useSelector } from 'react-redux';
+import { deleteContact } from 'redux/reducers/contactsSlice';
+import { selectorContacts, selectorFilter } from 'redux/selectors';
 
-const Contacts = ({ arrayContacts, onDeleteContact }) => {
+const Contacts = () => {
+
+    const contacts = useSelector(selectorContacts);
+    const filter = useSelector(selectorFilter);
+    const dispatch = useDispatch();
 
     const handleClick = (e) => {
         if (e.target.tagName === 'BUTTON') {
             const id = e.target.getAttribute('data-id');
-            onDeleteContact(id);
+            dispatch(deleteContact(id))
         }
     }
 
+    const filteredContacts = () => {
+        if (filter !== '') return contacts.filter(contact =>
+            contact.name.toLowerCase().includes(filter.toLowerCase()))
+        else if (filter === '') return contacts;
+    }
+
     return (
-        <ul onClick={handleClick}>
-            {arrayContacts.map(contact => (
-                <SavedContact
-                    arrayContacts={arrayContacts}
-                    key={contact.id}
-                    contact={contact}
-                />
-            ))}
-        </ul>
+        contacts.length > 0 ?
+            (<ul onClick={handleClick}>
+                {filteredContacts().map(({ id, name, number }) => (
+                    <SavedContact
+                        key={id}
+                        id={id}
+                        name={name}
+                        number={number}
+                    />
+                ))}
+            </ul>) : (<p className='text-message'>The contact list is empty.</p>)
     )
 }
 
