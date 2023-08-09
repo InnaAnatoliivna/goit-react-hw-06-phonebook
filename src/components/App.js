@@ -1,9 +1,9 @@
 import React from 'react';
-import Head from './title/head';
-import Section from './title/section-title';
-import Contacts from './contacts/contacts';
+import Head from './Title/head';
+import Section from './Title/section-title';
+import Contacts from './Contacts/contacts';
 import SearchContact from './SearchContact/SearchContact';
-import AddContactForm from './add-contact/add-contact';
+import AddContactForm from './Add-contact/add-contact';
 
 export const App = () => {
 

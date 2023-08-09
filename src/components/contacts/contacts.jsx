@@ -1,4 +1,4 @@
-import SavedContact from 'components/savedContact/savedContact'
+import SavedContact from 'components/SavedContact/savedContact'
 import { useDispatch, useSelector } from 'react-redux';
 import { deleteContact } from 'redux/reducers/contactsSlice';
 import { selectorContacts, selectorFilter } from 'redux/selectors';
