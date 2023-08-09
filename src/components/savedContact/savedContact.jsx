@@ -1,24 +1,18 @@
 import { IoMdContact } from 'react-icons/io';
-import css from 'components/SavedContact/savedContact.module.css'
+import css from 'components/SavedContact/savedContact.module.css';
 
 const SavedContact = ({ id, name, number }) => {
-
     return (
-        <li className={css.item} key={name}
-        >
+        <li className={css.item} key={name}>
             <p className={css.itemText}>
                 <IoMdContact className={css.icon} />
                 {name}: {number}
             </p>
-            <button
-                className={css.btn}
-                type='button'
-                data-id={id}
-            >
+            <button className={css.btn} type="button" data-id={id}>
                 Delete
             </button>
         </li>
-    )
-}
+    );
+};
 
 export default SavedContact;

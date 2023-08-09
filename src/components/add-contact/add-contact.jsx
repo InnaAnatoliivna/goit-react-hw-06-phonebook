@@ -5,10 +5,10 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectorContacts } from 'redux/selectors';
 import { addContact } from 'redux/reducers/contactsSlice';
 
-const AddContactForm = () => {
-    const nameInputId = getRandomId();
-    const numerInputId = getRandomId();
+const nameInputId = getRandomId();
+const numerInputId = getRandomId();
 
+const AddContactForm = () => {
     const [name, setName] = useState('');
     const [number, setNumber] = useState('');
 
