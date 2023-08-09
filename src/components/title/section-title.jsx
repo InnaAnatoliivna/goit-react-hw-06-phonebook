@@ -1,4 +1,4 @@
-import css from 'components/title/section-title.module.css'
+import css from 'components/Title/section-title.module.css'
 
 const Section = ({ title, children }) => {
     return (

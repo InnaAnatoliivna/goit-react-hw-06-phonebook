@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { getRandomId } from 'components/random-id'
-import css from 'components/add-contact/add-contact.module.css';
+import css from 'components/Add-contact/add-contact.module.css';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorContacts } from 'redux/selectors';
 import { addContact } from 'redux/reducers/contactsSlice';

@@ -1,4 +1,4 @@
-import css from 'components/title/head.module.css'
+import css from 'components/Title/head.module.css'
 
 const Head = ({ headTitle }) => {
     return (
