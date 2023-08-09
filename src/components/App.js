@@ -18,5 +18,4 @@ export const App = () => {
       </Section>
     </div>
   );
-
 }
